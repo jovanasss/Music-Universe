@@ -75,53 +75,6 @@ Entities are stored as nodes in Neo4j and connected by relationships:
 Typical relationships include *user → likes → song*, *user → subscribes → singer*,
 *singer → performs → song*, *songwriter → wrote → song*, and *song → belongs to → album*.
 
-## 🚀 Getting started
-
-### Prerequisites
-
-- [.NET 5.0 SDK](https://dotnet.microsoft.com/download/dotnet/5.0)
-- [Node.js](https://nodejs.org/) (v14+) and npm
-- [Neo4j](https://neo4j.com/download/) running locally on `bolt://localhost:7687`
-- [Redis](https://redis.io/download) running locally on `localhost:6379`
-
-### 1. Clone the repository
-
-```bash
-git clone https://github.com/jovanasss/Music-Universe.git
-cd Music-Universe
-```
-
-### 2. Configure the databases
-
-- Make sure **Neo4j** and **Redis** are running.
-- The Neo4j connection (URI and credentials) is configured in `backend/Startup.cs`
-  (default `bolt://localhost:7687`, user `neo4j`). Update the password there to match your local instance.
-- The Redis connection string is in `backend/appsettings.json` (`"RedisConnection": "localhost:6379"`).
-
-### 3. Run the backend
-
-```bash
-cd backend
-dotnet restore
-dotnet run
-```
-
-The API runs at `https://localhost:5001`, with Swagger UI at `https://localhost:5001/swagger`.
-CORS is already configured to allow the React app on `http://localhost:3000`.
-
-### 4. Run the frontend
-
-In a new terminal:
-
-```bash
-cd frontend
-npm install
-npm start
-```
-
-The app opens at `http://localhost:3000` and proxies API requests to `https://localhost:5001`
-(configured via the `proxy` field in `package.json`).
-
 ## 📡 API overview
 
 **UserController** — `/User`
